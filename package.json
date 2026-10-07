@@ -1,0 +1,28 @@
+{
+  "name": "code2video-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Convert an HTML/JavaScript animation into an MP4 video, in the browser (WebCodecs) or on a server (Playwright + ffmpeg).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "install:browsers": "npm --prefix server run install:browsers",
+    "dev": "concurrently -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "test": "npm --prefix client test && npm --prefix server test",
+    "test:unit": "npm --prefix client test && npm --prefix server run test:unit",
+    "typecheck": "npm --prefix client run typecheck && npm --prefix server run typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.13.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.18.0"
+  }
+}
